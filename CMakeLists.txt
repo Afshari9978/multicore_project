@@ -1,0 +1,7 @@
+cmake_minimum_required(VERSION 3.17)
+project(MulticoreProject)
+add_executable(multicore_project main.cpp openmp_tests/hello_world.cpp openmp_tests/headers.h openmp_tests/pi.cpp load_sqlite/load_sqlite.cpp load_sqlite/load_sqlite.h models/Company.cpp models/Company.h utils.cpp utils.h)
+include_directories(/usr/include)
+link_directories(/usr/lib)
+set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++11 -fopenmp")
+target_link_libraries(multicore_project sqlite3)
