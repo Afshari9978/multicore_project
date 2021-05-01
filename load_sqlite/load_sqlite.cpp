@@ -8,19 +8,7 @@
 
 using namespace std;
 
-static int callback(void *data, int argc, char **argv, char **azColName) {
-    int i;
-    fprintf(stderr, "%s: ", (const char *) data);
-
-    for (i = 0; i < argc; i++) {
-        printf("%s = %s\n", azColName[i], argv[i] ? argv[i] : "NULL");
-    }
-
-    printf("\n");
-    return 0;
-}
-
-int load_sqlite_data() {
+int db_select(string sql, int (*callback)(void*, int, char**, char**)) {
     sqlite3 *DB;
     int exit = sqlite3_open("/home/afshari9978/Projects/multicore_project/load_sqlite/mysqlite.db", &DB);
     string data("CALLBACK FUNCTION");
@@ -31,7 +19,6 @@ int load_sqlite_data() {
     } else
         std::cout << "Opened Database Successfully!" << std::endl;
 
-    string sql("SELECT * FROM company;");
     int rc = sqlite3_exec(DB, sql.c_str(), callback, (void *) data.c_str(), NULL);
 
     if (rc != SQLITE_OK)

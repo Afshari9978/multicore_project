@@ -1,6 +1,6 @@
 cmake_minimum_required(VERSION 3.17)
 project(MulticoreProject)
-add_executable(multicore_project main.cpp openmp_tests/hello_world.cpp openmp_tests/headers.h openmp_tests/pi.cpp load_sqlite/load_sqlite.cpp load_sqlite/load_sqlite.h models/Company.cpp models/Company.h utils.cpp utils.h)
+add_executable(multicore_project main.cpp openmp_tests/hello_world.cpp openmp_tests/headers.h openmp_tests/pi.cpp load_sqlite/load_sqlite.cpp load_sqlite/load_sqlite.h models/raw_models/RawCompany.cpp models/raw_models/RawCompany.h utils.cpp utils.h models/raw_models/RawDate.cpp models/raw_models/RawDate.h models/raw_models/RawPrice.cpp models/raw_models/RawPrice.h)
 include_directories(/usr/include)
 link_directories(/usr/lib)
 set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++11 -fopenmp")

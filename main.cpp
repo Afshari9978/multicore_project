@@ -1,26 +1,22 @@
-#include <iostream>
-#include "openmp_tests/headers.h"
-#include "load_sqlite/load_sqlite.h"
-#include "models/Company.h"
+#include "models/raw_models/RawCompany.h"
 #include "utils.h"
+#include "models/raw_models/RawPrice.h"
+#include "models/raw_models/RawDate.h"
 
 #define COMPANIES_COUNT 736
-// todo load sqlite
 // todo create classes
-// todo load companies
 // todo describe candlestick techniques
 // todo draw candle chart
 // todo find techniques in selected company
 // todo deal entrance hints
 
+vector<RawCompany> raw_companies;
+vector<RawPrice> raw_prices;
+vector<RawDate> raw_dates;
+
 int main() {
-    vector<Company> companies;
 
-
-    printf("%d", load_sqlite_data());
-
-
-    load_companies(companies);
+    load_raw_data();
 
     return 0;
 }
