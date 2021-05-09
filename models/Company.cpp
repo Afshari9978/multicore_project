@@ -1,13 +1,10 @@
 //
-// Created by afshari9978 on 4/25/21.
+// Created by afshari9978 on 5/1/21.
 //
 
-#include "RawCompany.h"
-#include "string"
+#include "Company.h"
 
-using namespace std;
-
-RawCompany::RawCompany(
+Company::Company(
         int id,
         const string &name,
         const string &namad

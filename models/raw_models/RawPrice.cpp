@@ -4,18 +4,20 @@
 
 #include "RawPrice.h"
 
-RawPrice::RawPrice(int companyId,
-                   int dateRow,
-                   const string &high,
-                   const string &low,
-                   const string &close,
-                   const string &open,
-                   const string &first,
-                   const string &grad,
-                   const string &valTrades,
-                   const string &numShares,
-                   const string &numTrades,
-                   const string &closeAdj) :
+RawPrice::RawPrice(
+        int companyId,
+        int dateRow,
+        const string &high,
+        const string &low,
+        const string &close,
+        const string &open,
+        const string &first,
+        const string &grad,
+        const string &valTrades,
+        const string &numShares,
+        const string &numTrades,
+        const string &closeAdj
+) :
         company_id(companyId),
         dateRow(dateRow),
         high(high), low(low),
@@ -24,19 +26,4 @@ RawPrice::RawPrice(int companyId,
         valTrades(valTrades),
         numShares(numShares),
         numTrades(numTrades),
-        closeAdj(closeAdj) {
-    this->dateRow = dateRow;
-    this->dateRow = dateRow;
-    this->high = high;
-    this->low = low;
-    this->close = close;
-    this->open = open;
-    this->first = first;
-    this->grad = grad;
-    this->valTrades = valTrades;
-    this->numShares = numShares;
-    this->numTrades = numTrades;
-    this->closeAdj = closeAdj;
-
-
-}
+        closeAdj(closeAdj) {}

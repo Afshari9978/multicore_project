@@ -25,9 +25,9 @@ public:
     string numTrades;
     string closeAdj;
 
-    RawPrice(int companyId, int dateRow, const string &high, const string &low, const string &close, const string &open,
-             const string &first, const string &grad, const string &valTrades, const string &numShares,
-             const string &numTrades, const string &closeAdj);
+    RawPrice(int companyId, int dateRow, const string &high, const string &low, const string &close,
+             const string &open, const string &first, const string &grad, const string &valTrades,
+             const string &numShares, const string &numTrades, const string &closeAdj);
 };
 
 

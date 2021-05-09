@@ -1,7 +1,7 @@
 //
 // Created by afshari9978 on 4/25/21.
 //
-#include "models/raw_models/RawCompany.h"
+#include "../models/raw_models/RawCompany.h"
 #include "vector"
 
 using namespace std;
@@ -10,6 +10,6 @@ using namespace std;
 #define MULTICOREPROJECT_UTILS_H
 
 
-void load_raw_data();
+void loadRawData();
 
 #endif //MULTICOREPROJECT_UTILS_H
