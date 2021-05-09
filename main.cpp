@@ -15,8 +15,6 @@
 using namespace std;
 using namespace chrono;
 
-// todo find techniques in selected company
-// todo deal entrance hints
 // todo describe all techniques
 // todo change threads count
 // todo check all for types
@@ -24,7 +22,6 @@ using namespace chrono;
 // todo database order instead of sort in c++
 // todo change db
 // todo load db batch to multi thread it
-// todo remove break s for increase time
 // todo draw candles to file
 
 map<int, RawCompany> raw_companies;

@@ -78,6 +78,15 @@ void findTechniques() {
             TECHNIQUE_PIERCING,
             TECHNIQUE_THREE_WHITE_SOLDIERS,
             TECHNIQUE_THREE_BLACK_CROWS,
+            TECHNIQUE_SPINNING_TOPS,
+            TECHNIQUE_HAMMER,
+            TECHNIQUE_HANGING_MAN,
+            TECHNIQUE_ENGULFING_UP,
+            TECHNIQUE_ENGULFING_DOWN,
+            TECHNIQUE_TWEEZERS_UP,
+            TECHNIQUE_TWEEZERS_DOWN,
+            TECHNIQUE_MORNING_STAR,
+            TECHNIQUE_EVENING_STAR
     };
     for (auto const&[key, val] : companies) {
 //        cout << val.namad << endl;
