@@ -1,5 +1,6 @@
 #include "map"
 #include <chrono>
+#include "omp.h"
 
 #include "models/raw_models/RawCompany.h"
 #include "models/raw_models/RawPrice.h"
@@ -11,6 +12,7 @@
 #include "utils/find_technique.h"
 
 #define COMPANIES_COUNT 736
+#define THREADS_COUNT 12
 
 using namespace std;
 using namespace chrono;
@@ -39,6 +41,7 @@ steady_clock::time_point timeCalculator(steady_clock::time_point begin) {
 int main() {
     chrono::steady_clock::time_point now;
     chrono::steady_clock::time_point start;
+    omp_set_num_threads(THREADS_COUNT);
 
     now = chrono::steady_clock::now();
     loadRawData();

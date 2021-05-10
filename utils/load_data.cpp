@@ -17,22 +17,28 @@ extern map<int, Company> companies;
 void loadDays() {
     cout << "loadDays" << endl;
     string dash = "-";
-    for (auto const&[key, rawCompany] : raw_companies) {
-        companies.insert({key, Company(rawCompany.id, rawCompany.name, rawCompany.namad)});
+    auto endIterate = raw_companies.end();
+    for (auto iterator = raw_companies.begin(); iterator != endIterate; iterator++) {
+        companies.insert(
+                {iterator->first, Company(iterator->second.id, iterator->second.name, iterator->second.namad)}
+        );
     }
-    for (auto const&[key, rawPrice] : raw_prices) {
-        companies.find(rawPrice.company_id)->second.days.emplace_back(Day(
-                raw_dates.find(to_string(rawPrice.company_id) + dash + to_string(rawPrice.dateRow))->second.date,
-                rawPrice.high,
-                rawPrice.low,
-                rawPrice.open,
-                rawPrice.close,
-                rawPrice.first,
-                rawPrice.grad,
-                rawPrice.valTrades,
-                rawPrice.numTrades,
-                rawPrice.numShares,
-                rawPrice.closeAdj
+    auto endIterate1 = raw_prices.end();
+    for (auto iterator = raw_prices.begin(); iterator != endIterate1; iterator++) {
+        companies.find(iterator->second.company_id)->second.days.emplace_back(Day(
+                raw_dates.find(
+                        to_string(iterator->second.company_id) + dash +
+                        to_string(iterator->second.dateRow))->second.date,
+                iterator->second.high,
+                iterator->second.low,
+                iterator->second.open,
+                iterator->second.close,
+                iterator->second.first,
+                iterator->second.grad,
+                iterator->second.valTrades,
+                iterator->second.numTrades,
+                iterator->second.numShares,
+                iterator->second.closeAdj
         ));
     }
 }

@@ -11,14 +11,17 @@ extern map<int, Company> companies;
 using namespace std;
 
 bool findTechnique(vector<int> &days, const CandlestickTechnique &technique, const Company &company) {
-    for (int dayCounter = 0; dayCounter < company.days.size() - technique.candles.size(); dayCounter++) {
+    unsigned long daysCount = company.days.size();
+    unsigned long candlesCount = technique.candles.size();
+    for (int dayCounter = 0; dayCounter < daysCount - candlesCount; dayCounter++) {
         Day day = company.days[dayCounter];
         bool applied = true;
         bool isFirstDay = true;
         int openPrice, closePrice;
         int innerDayIndex = 0;
         Day innerDay;
-        for (Candle candle : technique.candles) {
+        for (int candleIndex = 0; candleIndex < candlesCount; candleIndex++) {
+            Candle candle = technique.candles[candleIndex];
             innerDay = company.days[dayCounter + innerDayIndex];
             if (isFirstDay) {
                 openPrice = innerDay.openPrice;
@@ -71,6 +74,9 @@ bool findTechnique(vector<int> &days, const CandlestickTechnique &technique, con
 }
 
 
+#pragma clang diagnostic push
+#pragma ide diagnostic ignored "modernize-loop-convert"
+
 void findTechniques() {
     cout << "findTechniques" << endl;
     CandlestickTechnique techniques[] = {
@@ -88,13 +94,15 @@ void findTechniques() {
             TECHNIQUE_MORNING_STAR,
             TECHNIQUE_EVENING_STAR
     };
-    for (auto const&[key, val] : companies) {
-//        cout << val.namad << endl;
-        for (auto const &technique: techniques) {
+
+    auto endIterate = companies.end();
+    for (auto iterator = companies.begin(); iterator != endIterate; iterator++) {
+        for (int i = 0; i < 13; i++) {
             vector<int> days;
-            findTechnique(days, technique, val);
-//            cout << "    " << technique.name << " = " << days.size() << endl;
+            findTechnique(days, techniques[i], iterator->second);
             days.clear();
         }
     }
 }
+
+#pragma clang diagnostic pop
