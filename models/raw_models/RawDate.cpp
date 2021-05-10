@@ -15,3 +15,7 @@ RawDate::RawDate(
         company_id(company_id),
         date(date),
         date_row(date_row) {}
+
+RawDate::RawDate() {
+
+}

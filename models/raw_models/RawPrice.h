@@ -12,6 +12,8 @@ using namespace std;
 
 class RawPrice {
 public:
+    RawPrice();
+
     int company_id;
     int dateRow;
     string high;

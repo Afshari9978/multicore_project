@@ -21,6 +21,8 @@ public:
     Candle(bool isAscending, int openMatchPreviousOpen[2], int closeMatchPreviousOpen[2], int openMatchPreviousClose[2],
            int closeMatchPreviousClose[2]);
 
+    Candle();
+
     bool openMatchPreviousOpenAvailable();
     bool closeMatchPreviousOpenAvailable();
     bool openMatchPreviousCloseAvailable();

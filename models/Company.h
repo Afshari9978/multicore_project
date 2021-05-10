@@ -13,10 +13,13 @@ using namespace std;
 
 class Company {
 public:
+    Company();
+
     int id;
     string name;
     string namad;
-    vector<Day> days;
+    Day days[10000];
+    int daysLength;
 
     Company(int id, const string &name, const string &namad);
 

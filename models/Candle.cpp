@@ -42,3 +42,5 @@ bool Candle::closeMatchPreviousCloseAvailable() {
     if (this->closeMatchPreviousCloseFrom == -1 && this->closeMatchPreviousCloseTo == -1) return false;
     return true;
 }
+
+Candle::Candle() {}

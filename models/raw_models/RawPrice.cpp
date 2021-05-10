@@ -27,3 +27,7 @@ RawPrice::RawPrice(
         numShares(numShares),
         numTrades(numTrades),
         closeAdj(closeAdj) {}
+
+RawPrice::RawPrice() {
+
+}

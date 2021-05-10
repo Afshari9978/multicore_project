@@ -11,6 +11,8 @@ using namespace std;
 
 class RawCompany {
 public:
+    RawCompany();
+
     int id;
     string name;
     string namad;

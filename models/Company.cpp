@@ -12,3 +12,7 @@ Company::Company(
         id(id),
         name(name),
         namad(namad) {}
+
+Company::Company() {
+
+}

@@ -6,22 +6,22 @@
 #include <iostream>
 #include "manipulate_data.h"
 #include "../models/Company.h"
-#include "map"
 
 #define COMPANIES_COUNT 736
 
-extern map<int, Company> companies;
+extern Company companies[];
 
-
-vector<Day> daySorter(vector<Day> *days) {
-    vector<Day> *cats_copy = (days);
-    sort(cats_copy->begin(), cats_copy->end());
-    return *days;
-}
 
 void sortDays() {
     cout << "sortDays" << endl;
     for (int i = 0; i < COMPANIES_COUNT; i++) {
-        daySorter(&companies.find(i)->second.days);
+        for (int j = 0; j < 10000; j++) {
+            if (companies[i].days[j].date.empty()) {
+                companies[i].daysLength = j;
+                break;
+            }
+        }
+        reverse(companies[i].days, companies[i].days + companies[i].daysLength);
+
     }
 }

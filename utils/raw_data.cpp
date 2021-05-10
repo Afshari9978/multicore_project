@@ -10,13 +10,15 @@
 
 using namespace std;
 
-extern map<int, RawCompany> raw_companies;
-extern map<string, RawDate> raw_dates;
-extern map<string, RawPrice> raw_prices;
+extern RawCompany raw_companies[];
+extern RawDate raw_dates[];
+extern RawPrice raw_prices[];
+int rawDateIndex = 0;
+int rawPriceIndex = 0;
 
 static int dbCompanyReadCallback(void *data, int argc, char **argv, char **azColName) {
     if (argc == 3) {
-        raw_companies.insert({stoi(argv[0]), RawCompany(stoi(argv[0]), argv[1], argv[2])});
+        raw_companies[stoi(argv[0]) - 1] = RawCompany(stoi(argv[0]), argv[1], argv[2]);
     }
 
     return 0;
@@ -24,20 +26,17 @@ static int dbCompanyReadCallback(void *data, int argc, char **argv, char **azCol
 
 static int dbDateReadCallback(void *data, int argc, char **argv, char **azColName) {
     string dash = "-";
-    if (argc == 3) {
-        raw_dates.insert({argv[0] + dash + argv[2], RawDate(stoi(argv[0]), argv[1], stoi(argv[2]))});
-    }
+    raw_dates[rawDateIndex] = RawDate(stoi(argv[0]), argv[1], stoi(argv[2]));
+    rawDateIndex++;
 
     return 0;
 }
 
 static int dbPriceReadCallback(void *data, int argc, char **argv, char **azColName) {
     string dash = "-";
-    if (argc == 12) {
-        raw_prices.insert({argv[0] + dash + argv[1],
-                           RawPrice(stoi(argv[0]), stoi(argv[1]), argv[2], argv[3], argv[4], argv[5], argv[6], argv[7],
-                                    argv[8], argv[9], argv[10], argv[11])});
-    }
+    raw_prices[rawPriceIndex] = RawPrice(stoi(argv[0]), stoi(argv[1]), argv[2], argv[3], argv[4], argv[5], argv[6],
+                                         argv[7], argv[8], argv[9], argv[10], argv[11]);
+    rawPriceIndex++;
 
     return 0;
 }

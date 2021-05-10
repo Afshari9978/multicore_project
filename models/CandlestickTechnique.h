@@ -6,21 +6,20 @@
 #define MULTICOREPROJECT_CANDLESTICKTECHNIQUE_H
 
 #include "string"
-#include "vector"
 #include "Candle.h"
 
 using namespace std;
 
 class CandlestickTechnique {
 public:
+    CandlestickTechnique();
+
     string name;
     bool isAscending;
-    vector<Candle> candles;
+    Candle candles[8];
+    int candlesCount;
 
-    CandlestickTechnique(const string &name, bool isAscending, const vector<Candle> &candles);
-
-    CandlestickTechnique(const string &name, bool isAscending);
-
+    CandlestickTechnique(const string &name, bool isAscending, int candlesCount);
 };
 
 

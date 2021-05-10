@@ -15,3 +15,7 @@ RawCompany::RawCompany(
         id(id),
         name(name),
         namad(namad) {}
+
+RawCompany::RawCompany() {
+
+}

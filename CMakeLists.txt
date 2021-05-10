@@ -1,6 +1,6 @@
 cmake_minimum_required(VERSION 3.17)
 project(MulticoreProject)
-add_executable(multicore_project main.cpp openmp_tests/hello_world.cpp openmp_tests/headers.h openmp_tests/pi.cpp load_sqlite/load_sqlite.cpp load_sqlite/load_sqlite.h models/raw_models/RawCompany.cpp models/raw_models/RawCompany.h utils/raw_data.cpp utils/raw_data.h models/raw_models/RawDate.cpp models/raw_models/RawDate.h models/raw_models/RawPrice.cpp models/raw_models/RawPrice.h models/Company.cpp models/Company.h models/Day.cpp models/Day.h utils/load_data.cpp utils/load_data.h utils/manipulate_data.cpp utils/manipulate_data.h models/CandlestickTechnique.cpp models/CandlestickTechnique.h models/Candle.cpp models/Candle.h utils/candles_store.h utils/find_technique.cpp utils/find_technique.h)
+add_executable(multicore_project main.cpp openmp_tests/hello_world.cpp openmp_tests/headers.h openmp_tests/pi.cpp load_sqlite/load_sqlite.cpp load_sqlite/load_sqlite.h models/raw_models/RawCompany.cpp models/raw_models/RawCompany.h utils/raw_data.cpp utils/raw_data.h models/raw_models/RawDate.cpp models/raw_models/RawDate.h models/raw_models/RawPrice.cpp models/raw_models/RawPrice.h models/Company.cpp models/Company.h models/Day.cpp models/Day.h utils/load_data.cpp utils/load_data.h utils/manipulate_data.cpp utils/manipulate_data.h models/CandlestickTechnique.cpp models/CandlestickTechnique.h models/Candle.cpp models/Candle.h utils/find_technique.cpp utils/find_technique.h)
 include_directories(/usr/include)
 link_directories(/usr/lib)
 set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++17 -fopenmp")

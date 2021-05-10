@@ -11,6 +11,8 @@ using namespace std;
 
 class RawDate {
 public:
+    RawDate();
+
     int company_id;
     string date;
     int date_row;

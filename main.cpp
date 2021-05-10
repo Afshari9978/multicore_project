@@ -11,8 +11,11 @@
 #include "utils/manipulate_data.h"
 #include "utils/find_technique.h"
 
-#define COMPANIES_COUNT 736
 #define THREADS_COUNT 12
+
+#define COMPANIES_COUNT 736
+#define DATES_COUNT 1561205
+#define PRICES_COUNT 1561205
 
 using namespace std;
 using namespace chrono;
@@ -26,10 +29,10 @@ using namespace chrono;
 // todo load db batch to multi thread it
 // todo draw candles to file
 
-map<int, RawCompany> raw_companies;
-map<string, RawPrice> raw_prices;
-map<string, RawDate> raw_dates;
-map<int, Company> companies;
+RawCompany raw_companies[COMPANIES_COUNT];
+RawPrice raw_prices[PRICES_COUNT];
+RawDate raw_dates[DATES_COUNT];
+Company companies[COMPANIES_COUNT];
 
 
 steady_clock::time_point timeCalculator(steady_clock::time_point begin) {

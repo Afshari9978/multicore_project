@@ -4,12 +4,10 @@
 
 #include "CandlestickTechnique.h"
 
-CandlestickTechnique::CandlestickTechnique(
-        const string &name,
-        bool isAscending
-) :
+CandlestickTechnique::CandlestickTechnique(const string &name, bool isAscending, int candlesCount) :
         name(name),
-        isAscending(isAscending) {}
+        isAscending(isAscending), candlesCount(candlesCount) {}
 
-CandlestickTechnique::CandlestickTechnique(const string &name, bool isAscending, const vector<Candle> &candles) : name(
-        name), isAscending(isAscending), candles(candles) {}
+CandlestickTechnique::CandlestickTechnique() {
+
+}

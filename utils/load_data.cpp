@@ -7,38 +7,41 @@
 #include "../models/raw_models/RawDate.h"
 #include "../models/raw_models/RawPrice.h"
 #include "../models/Company.h"
-#include "map"
 
-extern map<int, RawCompany> raw_companies;
-extern map<string, RawDate> raw_dates;
-extern map<string, RawPrice> raw_prices;
-extern map<int, Company> companies;
+#define COMPANIES_COUNT 736
+#define DATES_COUNT 1561205
+#define PRICES_COUNT 1561205
+
+#define THREADS_COUNT 12
+
+extern RawCompany raw_companies[];
+extern RawDate raw_dates[];
+extern RawPrice raw_prices[];
+extern Company companies[];
 
 void loadDays() {
     cout << "loadDays" << endl;
     string dash = "-";
-    auto endIterate = raw_companies.end();
-    for (auto iterator = raw_companies.begin(); iterator != endIterate; iterator++) {
-        companies.insert(
-                {iterator->first, Company(iterator->second.id, iterator->second.name, iterator->second.namad)}
+    for (int iterator = 0; iterator < COMPANIES_COUNT; iterator++) {
+        companies[iterator] = Company(raw_companies[iterator].id, raw_companies[iterator].name,
+                                      raw_companies[iterator].namad);
+    }
+    for (int i = 0; i < PRICES_COUNT; i++) {
+        companies[raw_prices[i].company_id - 1].days[raw_prices[i].dateRow - 1] = Day(
+                "",
+                raw_prices[i].high,
+                raw_prices[i].low,
+                raw_prices[i].open,
+                raw_prices[i].close,
+                raw_prices[i].first,
+                raw_prices[i].grad,
+                raw_prices[i].valTrades,
+                raw_prices[i].numTrades,
+                raw_prices[i].numShares,
+                raw_prices[i].closeAdj
         );
     }
-    auto endIterate1 = raw_prices.end();
-    for (auto iterator = raw_prices.begin(); iterator != endIterate1; iterator++) {
-        companies.find(iterator->second.company_id)->second.days.emplace_back(Day(
-                raw_dates.find(
-                        to_string(iterator->second.company_id) + dash +
-                        to_string(iterator->second.dateRow))->second.date,
-                iterator->second.high,
-                iterator->second.low,
-                iterator->second.open,
-                iterator->second.close,
-                iterator->second.first,
-                iterator->second.grad,
-                iterator->second.valTrades,
-                iterator->second.numTrades,
-                iterator->second.numShares,
-                iterator->second.closeAdj
-        ));
+    for (int i = 0; i < DATES_COUNT; i++) {
+        companies[raw_dates[i].company_id - 1].days[raw_dates[i].date_row - 1].date = raw_dates[i].date;
     }
 }
